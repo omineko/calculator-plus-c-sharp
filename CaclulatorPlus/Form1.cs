@@ -103,34 +103,34 @@ namespace CaclulatorPlus
         private void Add_Click(object sender, EventArgs e)
         {
             Calculator.Add();
-            this.currentValue.Text = Calculator.GetExpression();
             this.expressionPreview.Text = Calculator.GetPreview();
+            this.currentValue.Text = Calculator.Calculate().ToString();
         }
 
         private void Substract_Click(object sender, EventArgs e)
         {
             Calculator.Subtract();
-            this.currentValue.Text = Calculator.GetExpression();
             this.expressionPreview.Text = Calculator.GetPreview();
+            this.currentValue.Text = Calculator.Calculate().ToString();
         }
 
         private void Multiply_Click(object sender, EventArgs e)
         {
             Calculator.Multiply();
-            this.currentValue.Text = Calculator.GetExpression();
             this.expressionPreview.Text = Calculator.GetPreview();
+            this.currentValue.Text = Calculator.Calculate().ToString();
         }
 
         private void Divide_Click(object sender, EventArgs e)
         {
             Calculator.Divide();
-            this.currentValue.Text = Calculator.GetExpression();
             this.expressionPreview.Text = Calculator.GetPreview();
+            this.currentValue.Text = Calculator.Calculate().ToString();
         }
 
         private void Equals_Click(object sender, EventArgs e)
         {
-            this.currentValue.Text = Calculator.Calculate().ToString();
+            this.currentValue.Text = Calculator.Equals().ToString();
             this.expressionPreview.Text = Calculator.GetPreview();
         }
     }

@@ -8,37 +8,30 @@ namespace CalculatorPlus
         private static string expression = "0";
         private static string infix = "";
         private static string preview = "";
+        private static bool isRecentlyCalc = false;
 
         public static void Add()
         {
             infix += $"{expression} + ";
             preview += $"{expression} + ";
-
-            Clear();
         }
 
         public static void Subtract()
         {
             infix += $"{expression} - ";
             preview += $"{expression} - ";
-
-            Clear();
         }
 
         public static void Multiply()
         {
             infix += $"{expression} * ";
             preview += $"{expression} × ";
-
-            Clear();
         }
 
         public static void Divide()
         {
             infix += $"{expression} / ";
             preview += $"{expression} ÷ ";
-
-            Clear();
         }
 
         public static void InsertDecimalPoint()
@@ -49,17 +42,26 @@ namespace CalculatorPlus
             }
         }
 
+        public static double Equals() {
+            infix += expression;
+            double result = Calculate();
+
+            Clear();
+            return result;
+        }
+
         public static void SetExpression(double val)
         {
             double currentValue = Convert.ToDouble(expression);
 
-            if (currentValue != 0 || expression.Contains('.'))
+            if ((currentValue != 0 || expression.Contains('.')) && !isRecentlyCalc)
             {
                 expression += val;
             }
             else
             {
                 expression = val.ToString();
+                isRecentlyCalc = false;
             }
         }
 
@@ -77,7 +79,8 @@ namespace CalculatorPlus
 
         public static void Clear()
         {
-            expression = "0";
+            preview = "";
+            infix = "";
         }
 
         public static void Reset()
@@ -154,10 +157,8 @@ namespace CalculatorPlus
 
         public static double Calculate()
         {
-            preview += expression;
-            infix += expression;
-
             Console.WriteLine(preview);
+            isRecentlyCalc = true;
 
             string[] postfix = ToPostFix(infix).Split(" ");
             Stack<string> stack = new();
