@@ -70,11 +70,15 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.clearAll = new System.Windows.Forms.Button();
             this.clear = new System.Windows.Forms.Button();
+            this.historyPanel = new System.Windows.Forms.Panel();
+            this.history = new System.Windows.Forms.RichTextBox();
+            this.clearHistory = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
+            this.historyPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -144,6 +148,7 @@
             this.showHistoryBtn.Size = new System.Drawing.Size(40, 30);
             this.showHistoryBtn.TabIndex = 3;
             this.showHistoryBtn.UseVisualStyleBackColor = true;
+            this.showHistoryBtn.Click += new System.EventHandler(this.ShowHistoryBtn_Click);
             // 
             // panel2
             // 
@@ -691,12 +696,49 @@
             this.clear.UseVisualStyleBackColor = true;
             this.clear.Click += new System.EventHandler(this.Clear_Click);
             // 
+            // historyPanel
+            // 
+            this.historyPanel.Controls.Add(this.history);
+            this.historyPanel.Controls.Add(this.clearHistory);
+            this.historyPanel.Location = new System.Drawing.Point(0, 178);
+            this.historyPanel.Name = "historyPanel";
+            this.historyPanel.Size = new System.Drawing.Size(608, 0);
+            this.historyPanel.TabIndex = 36;
+            // 
+            // history
+            // 
+            this.history.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
+            this.history.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.history.ForeColor = System.Drawing.Color.White;
+            this.history.Location = new System.Drawing.Point(0, 0);
+            this.history.Name = "history";
+            this.history.Size = new System.Drawing.Size(608, 0);
+            this.history.TabIndex = 6;
+            this.history.Text = "";
+            // 
+            // clearHistory
+            // 
+            this.clearHistory.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.clearHistory.FlatAppearance.BorderSize = 0;
+            this.clearHistory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.clearHistory.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.clearHistory.ForeColor = System.Drawing.Color.White;
+            this.clearHistory.Location = new System.Drawing.Point(0, -30);
+            this.clearHistory.Margin = new System.Windows.Forms.Padding(0);
+            this.clearHistory.Name = "clearHistory";
+            this.clearHistory.Size = new System.Drawing.Size(608, 30);
+            this.clearHistory.TabIndex = 5;
+            this.clearHistory.Text = "Clear History";
+            this.clearHistory.UseVisualStyleBackColor = true;
+            this.clearHistory.Click += new System.EventHandler(this.ClearHistory_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
             this.ClientSize = new System.Drawing.Size(608, 421);
+            this.Controls.Add(this.historyPanel);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.factorial);
             this.Controls.Add(this.round);
@@ -740,6 +782,7 @@
             this.panel3.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
+            this.historyPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -787,5 +830,8 @@
         private Panel panel5;
         private Button clearAll;
         private Button clear;
+        private Panel historyPanel;
+        private RichTextBox history;
+        private Button clearHistory;
     }
 }

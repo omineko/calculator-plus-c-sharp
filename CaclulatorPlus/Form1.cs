@@ -130,8 +130,13 @@ namespace CaclulatorPlus
 
         private void Equals_Click(object sender, EventArgs e)
         {
-            this.currentValue.Text = Calculator.Equals().ToString();
+            string result = Calculator.Equals().ToString();
+            string preview = Calculator.GetPreview();
+            Calculator.Clear();
+
+            this.currentValue.Text = result;
             this.expressionPreview.Text = Calculator.GetPreview();
+            this.history.Text += $"{preview} = {result}\n";
         }
 
         private void Sin_Click(object sender, EventArgs e)
@@ -216,6 +221,22 @@ namespace CaclulatorPlus
             Calculator.Round();
             this.expressionPreview.Text = Calculator.GetPreview();
             this.currentValue.Text = Calculator.Calculate().ToString();
+        }
+
+        private void ShowHistoryBtn_Click(object sender, EventArgs e)
+        {
+            if (historyPanel.Height > 0)
+            {
+                historyPanel.Size = new Size(historyPanel.Width, 0);
+                return;
+            }
+
+            historyPanel.Size = new Size(historyPanel.Width, 244);
+        }
+
+        private void ClearHistory_Click(object sender, EventArgs e)
+        {
+            this.history.Text = "";
         }
     }
 }

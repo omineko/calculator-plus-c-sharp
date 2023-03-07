@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CaclulatorPlus;
+using System;
 using System.Collections.Generic;
 
 namespace CalculatorPlus
@@ -196,9 +197,9 @@ namespace CalculatorPlus
 
         public static double Equals() {
             infix += expression;
+            preview += expression;
             double result = Calculate();
 
-            Clear();
             return result;
         }
 
