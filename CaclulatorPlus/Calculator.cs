@@ -65,6 +65,21 @@ namespace CalculatorPlus
             preview += $"{expression} ^ 2 ";
         }
 
+        // exp
+        public static void Exp()
+        {
+            isRecentlyFunc = true;
+            infix += $"{Math.Exp(double.Parse(expression))} ";
+            preview += $"exp({expression}) ";
+        }
+
+        public static void Round()
+        {
+            isRecentlyFunc = true;
+            infix += $"{Math.Round(double.Parse(expression))} ";
+            preview += $"round({expression}) ";
+        }
+
         // xy
         public static void Raise()
         {

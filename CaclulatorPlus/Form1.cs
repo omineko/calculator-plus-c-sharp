@@ -203,5 +203,19 @@ namespace CaclulatorPlus
             this.expressionPreview.Text = Calculator.GetPreview();
             this.currentValue.Text = Calculator.Calculate().ToString();
         }
+
+        private void Exp_Click(object sender, EventArgs e)
+        {
+            Calculator.Exp();
+            this.expressionPreview.Text = Calculator.GetPreview();
+            this.currentValue.Text = Calculator.Calculate().ToString();
+        }
+
+        private void Round_Click(object sender, EventArgs e)
+        {
+            Calculator.Round();
+            this.expressionPreview.Text = Calculator.GetPreview();
+            this.currentValue.Text = Calculator.Calculate().ToString();
+        }
     }
 }

@@ -65,8 +65,8 @@
             this.raiseTwo = new System.Windows.Forms.Button();
             this.root = new System.Windows.Forms.Button();
             this.factorial = new System.Windows.Forms.Button();
-            this.rightParenthesis = new System.Windows.Forms.Button();
-            this.leftParenthesis = new System.Windows.Forms.Button();
+            this.round = new System.Windows.Forms.Button();
+            this.exp = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.clearAll = new System.Windows.Forms.Button();
             this.clear = new System.Windows.Forms.Button();
@@ -618,35 +618,37 @@
             this.factorial.UseVisualStyleBackColor = false;
             this.factorial.Click += new System.EventHandler(this.Factorial_Click);
             // 
-            // rightParenthesis
+            // round
             // 
-            this.rightParenthesis.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            this.rightParenthesis.FlatAppearance.BorderSize = 0;
-            this.rightParenthesis.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rightParenthesis.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.rightParenthesis.ForeColor = System.Drawing.Color.White;
-            this.rightParenthesis.Location = new System.Drawing.Point(93, 358);
-            this.rightParenthesis.Margin = new System.Windows.Forms.Padding(0);
-            this.rightParenthesis.Name = "rightParenthesis";
-            this.rightParenthesis.Size = new System.Drawing.Size(80, 55);
-            this.rightParenthesis.TabIndex = 33;
-            this.rightParenthesis.Text = ")";
-            this.rightParenthesis.UseVisualStyleBackColor = false;
+            this.round.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
+            this.round.FlatAppearance.BorderSize = 0;
+            this.round.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.round.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.round.ForeColor = System.Drawing.Color.White;
+            this.round.Location = new System.Drawing.Point(93, 358);
+            this.round.Margin = new System.Windows.Forms.Padding(0);
+            this.round.Name = "round";
+            this.round.Size = new System.Drawing.Size(80, 55);
+            this.round.TabIndex = 33;
+            this.round.Text = "Round";
+            this.round.UseVisualStyleBackColor = false;
+            this.round.Click += new System.EventHandler(this.Round_Click);
             // 
-            // leftParenthesis
+            // exp
             // 
-            this.leftParenthesis.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            this.leftParenthesis.FlatAppearance.BorderSize = 0;
-            this.leftParenthesis.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.leftParenthesis.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.leftParenthesis.ForeColor = System.Drawing.Color.White;
-            this.leftParenthesis.Location = new System.Drawing.Point(8, 358);
-            this.leftParenthesis.Margin = new System.Windows.Forms.Padding(0);
-            this.leftParenthesis.Name = "leftParenthesis";
-            this.leftParenthesis.Size = new System.Drawing.Size(80, 55);
-            this.leftParenthesis.TabIndex = 32;
-            this.leftParenthesis.Text = "(";
-            this.leftParenthesis.UseVisualStyleBackColor = false;
+            this.exp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
+            this.exp.FlatAppearance.BorderSize = 0;
+            this.exp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.exp.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.exp.ForeColor = System.Drawing.Color.White;
+            this.exp.Location = new System.Drawing.Point(8, 358);
+            this.exp.Margin = new System.Windows.Forms.Padding(0);
+            this.exp.Name = "exp";
+            this.exp.Size = new System.Drawing.Size(80, 55);
+            this.exp.TabIndex = 32;
+            this.exp.Text = "Exp";
+            this.exp.UseVisualStyleBackColor = false;
+            this.exp.Click += new System.EventHandler(this.Exp_Click);
             // 
             // panel5
             // 
@@ -697,8 +699,8 @@
             this.ClientSize = new System.Drawing.Size(608, 421);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.factorial);
-            this.Controls.Add(this.rightParenthesis);
-            this.Controls.Add(this.leftParenthesis);
+            this.Controls.Add(this.round);
+            this.Controls.Add(this.exp);
             this.Controls.Add(this.raiseY);
             this.Controls.Add(this.raiseTwo);
             this.Controls.Add(this.root);
@@ -780,8 +782,8 @@
         private Button raiseTwo;
         private Button root;
         private Button factorial;
-        private Button rightParenthesis;
-        private Button leftParenthesis;
+        private Button round;
+        private Button exp;
         private Panel panel5;
         private Button clearAll;
         private Button clear;
