@@ -472,6 +472,7 @@
             this.tan.TabIndex = 25;
             this.tan.Text = "tan";
             this.tan.UseVisualStyleBackColor = false;
+            this.tan.Click += new System.EventHandler(this.Tan_Click);
             // 
             // cos
             // 
@@ -487,6 +488,7 @@
             this.cos.TabIndex = 24;
             this.cos.Text = "cos";
             this.cos.UseVisualStyleBackColor = false;
+            this.cos.Click += new System.EventHandler(this.Cos_Click);
             // 
             // sin
             // 
@@ -502,6 +504,7 @@
             this.sin.TabIndex = 23;
             this.sin.Text = "sin";
             this.sin.UseVisualStyleBackColor = false;
+            this.sin.Click += new System.EventHandler(this.Sin_Click);
             // 
             // pi
             // 
@@ -517,6 +520,7 @@
             this.pi.TabIndex = 28;
             this.pi.Text = "π";
             this.pi.UseVisualStyleBackColor = false;
+            this.pi.Click += new System.EventHandler(this.Pi_Click);
             // 
             // mod
             // 
@@ -532,6 +536,7 @@
             this.mod.TabIndex = 27;
             this.mod.Text = "Mod";
             this.mod.UseVisualStyleBackColor = false;
+            this.mod.Click += new System.EventHandler(this.Mod_Click);
             // 
             // log
             // 
@@ -547,6 +552,7 @@
             this.log.TabIndex = 26;
             this.log.Text = "log";
             this.log.UseVisualStyleBackColor = false;
+            this.log.Click += new System.EventHandler(this.Log_Click);
             // 
             // raiseY
             // 
@@ -562,6 +568,7 @@
             this.raiseY.TabIndex = 31;
             this.raiseY.Text = "xʸ";
             this.raiseY.UseVisualStyleBackColor = false;
+            this.raiseY.Click += new System.EventHandler(this.RaiseY_Click);
             // 
             // raiseTwo
             // 
@@ -577,6 +584,7 @@
             this.raiseTwo.TabIndex = 30;
             this.raiseTwo.Text = "x²";
             this.raiseTwo.UseVisualStyleBackColor = false;
+            this.raiseTwo.Click += new System.EventHandler(this.RaiseTwo_Click);
             // 
             // root
             // 
@@ -592,6 +600,7 @@
             this.root.TabIndex = 29;
             this.root.Text = "√";
             this.root.UseVisualStyleBackColor = false;
+            this.root.Click += new System.EventHandler(this.Root_Click);
             // 
             // factorial
             // 
@@ -607,6 +616,7 @@
             this.factorial.TabIndex = 34;
             this.factorial.Text = "n!";
             this.factorial.UseVisualStyleBackColor = false;
+            this.factorial.Click += new System.EventHandler(this.Factorial_Click);
             // 
             // rightParenthesis
             // 

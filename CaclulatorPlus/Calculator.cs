@@ -9,27 +9,164 @@ namespace CalculatorPlus
         private static string infix = "";
         private static string preview = "";
         private static bool isRecentlyCalc = false;
+        private static bool isRecentlyFunc = false;
+
+        public static void Sin()
+        {
+            isRecentlyFunc = true;
+            infix += $"{Math.Sin(double.Parse(expression))} ";
+            preview += $"sin({expression}) ";
+        }
+
+        // cos
+        public static void Cos()
+        {
+            isRecentlyFunc = true;
+            infix += $"{Math.Cos(double.Parse(expression))} ";
+            preview += $"cos({expression}) ";
+        }
+
+        // tan
+        public static void Tan()
+        {
+            isRecentlyFunc = true;
+            infix += $"{Math.Tan(double.Parse(expression))} ";
+            preview += $"tan({expression}) ";
+        }
+
+        // log
+        public static void Log()
+        {
+            isRecentlyFunc = true;
+            infix += $"{Math.Log(double.Parse(expression))} ";
+            preview += $"log({expression}) ";
+        }
+
+        // pi
+        public static void PI()
+        {
+            infix += $"{Math.PI} ";
+            expression = Math.PI.ToString();
+        }
+
+        // square root
+        public static void Sqrt()
+        {
+            isRecentlyFunc = true;
+            infix += $"{Math.Sqrt(double.Parse(expression))} ";
+            preview += $"sqrt({expression}) ";
+        }
+
+        // x2
+        public static void Squared()
+        {
+            isRecentlyFunc = true;
+            infix += $"{Math.Pow(double.Parse(expression), 2)} ";
+            preview += $"{expression} ^ 2 ";
+        }
+
+        // xy
+        public static void Raise()
+        {
+            if (isRecentlyFunc)
+            {
+                infix += "^ ";
+                preview += "^ ";
+
+                isRecentlyFunc = false;
+                return;
+            }
+
+            infix += $"{expression} ^ ";
+            preview += $"{expression} ^ ";
+        }
+
+        // factorial
+        public static void Factorial()
+        {
+            isRecentlyFunc = true;
+
+            double result = 1;
+            for (double i = 1; i <= double.Parse(expression); i++)
+            {
+                result *= i;
+            }
+
+            infix += $"{result} ";
+            preview += $"{expression}! ";
+        }
+
+        public static void Mod()
+        {
+            if (isRecentlyFunc)
+            {
+                infix += "% ";
+                preview += "Mod ";
+
+                isRecentlyFunc = false;
+                return;
+            }
+
+            infix += $"{expression} % ";
+            preview += $"{expression} Mod ";
+        }
 
         public static void Add()
         {
+            if (isRecentlyFunc)
+            {
+                infix += "+ ";
+                preview += "+ ";
+
+                isRecentlyFunc = false;
+                return;
+            }
+
             infix += $"{expression} + ";
             preview += $"{expression} + ";
         }
 
         public static void Subtract()
         {
+            if (isRecentlyFunc)
+            {
+                infix += "- ";
+                preview += "- ";
+
+                isRecentlyFunc = false;
+                return;
+            }
+
             infix += $"{expression} - ";
             preview += $"{expression} - ";
         }
 
         public static void Multiply()
         {
+            if (isRecentlyFunc)
+            {
+                infix += "* ";
+                preview += "× ";
+
+                isRecentlyFunc = false;
+                return;
+            }
+
             infix += $"{expression} * ";
             preview += $"{expression} × ";
         }
 
         public static void Divide()
         {
+            if (isRecentlyFunc)
+            {
+                infix += "/ ";
+                preview += "÷ ";
+
+                isRecentlyFunc = false;
+                return;
+            }
+
             infix += $"{expression} / ";
             preview += $"{expression} ÷ ";
         }
@@ -52,7 +189,7 @@ namespace CalculatorPlus
 
         public static void SetExpression(double val)
         {
-            double currentValue = Convert.ToDouble(expression);
+            double currentValue = double.Parse(expression);
 
             if ((currentValue != 0 || expression.Contains('.')) && !isRecentlyCalc)
             {
@@ -157,7 +294,7 @@ namespace CalculatorPlus
 
         public static double Calculate()
         {
-            Console.WriteLine(preview);
+            Console.WriteLine(infix);
             isRecentlyCalc = true;
 
             string[] postfix = ToPostFix(infix).Split(" ");
@@ -172,8 +309,8 @@ namespace CalculatorPlus
 
                 if (IsOperator(token))
                 {
-                    double a = Convert.ToDouble(stack.Pop());
-                    double b = Convert.ToDouble(stack.Pop());
+                    double a = double.Parse(stack.Pop());
+                    double b = double.Parse(stack.Pop());
 
                     switch(token)
                     {
@@ -189,6 +326,9 @@ namespace CalculatorPlus
                         case "/":
                             stack.Push(Convert.ToString(b / a));
                             break;
+                        case "%":
+                            stack.Push(Convert.ToString(b % a));
+                            break;
 
                     }
                 }
@@ -196,12 +336,12 @@ namespace CalculatorPlus
 
             expression = stack.Pop();
 
-            return Convert.ToDouble(expression);
+            return double.Parse(expression);
         }
 
         private static bool IsOperator(string op)
         {
-            return char.TryParse(op, out char c) && (c == '+' || c == '-' || c == '*' || c == '/');
+            return char.TryParse(op, out char c) && (c == '+' || c == '-' || c == '*' || c == '/' || c == '%');
         }
 
         private static bool IsOperand(string operand)
@@ -214,7 +354,7 @@ namespace CalculatorPlus
             return op switch
             {
                 '+' or '-' => 1,
-                '*' or '/' => 2,
+                '*' or '/' or '%' => 2,
                 '^' => 3,
                 _ => 0,
             };

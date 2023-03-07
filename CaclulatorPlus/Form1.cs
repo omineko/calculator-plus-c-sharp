@@ -133,5 +133,73 @@ namespace CaclulatorPlus
             this.currentValue.Text = Calculator.Equals().ToString();
             this.expressionPreview.Text = Calculator.GetPreview();
         }
+
+        private void Sin_Click(object sender, EventArgs e)
+        {
+            Calculator.Sin();
+            this.expressionPreview.Text = Calculator.GetPreview();
+            this.currentValue.Text = Calculator.Calculate().ToString();
+        }
+
+        private void Cos_Click(object sender, EventArgs e)
+        {
+            Calculator.Cos();
+            this.expressionPreview.Text = Calculator.GetPreview();
+            this.currentValue.Text = Calculator.Calculate().ToString();
+        }
+
+        private void Tan_Click(object sender, EventArgs e)
+        {
+            Calculator.Tan();
+            this.expressionPreview.Text = Calculator.GetPreview();
+            this.currentValue.Text = Calculator.Calculate().ToString();
+        }
+
+        private void Log_Click(object sender, EventArgs e)
+        {
+            Calculator.Log();
+            this.expressionPreview.Text = Calculator.GetPreview();
+            this.currentValue.Text = Calculator.Calculate().ToString();
+        }
+
+        private void Mod_Click(object sender, EventArgs e)
+        {
+            Calculator.Mod();
+            this.expressionPreview.Text = Calculator.GetPreview();
+            this.currentValue.Text = Calculator.Calculate().ToString();
+        }
+
+        private void Pi_Click(object sender, EventArgs e)
+        {
+            Calculator.PI();
+            this.expressionPreview.Text = Calculator.GetPreview();
+            this.currentValue.Text = Calculator.GetExpression();
+        }
+
+        private void Root_Click(object sender, EventArgs e)
+        {
+            Calculator.Sqrt();
+            this.expressionPreview.Text = Calculator.GetPreview();
+            this.currentValue.Text = Calculator.Calculate().ToString();
+        }
+
+        private void RaiseTwo_Click(object sender, EventArgs e)
+        {
+            Calculator.Squared();
+            this.expressionPreview.Text = Calculator.GetPreview();
+            this.currentValue.Text = Calculator.Calculate().ToString();
+        }
+
+        private void RaiseY_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Factorial_Click(object sender, EventArgs e)
+        {
+            Calculator.Factorial();
+            this.expressionPreview.Text = Calculator.GetPreview();
+            this.currentValue.Text = Calculator.Calculate().ToString();
+        }
     }
 }
