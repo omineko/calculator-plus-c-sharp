@@ -86,15 +86,16 @@ namespace CalculatorPlus
         {
             if (isRecentlyFunc)
             {
-                infix += "^ ";
-                preview += "^ ";
+
+                infix += $"{expression} ^ ";
+                preview += $"{expression} ^ ";
 
                 isRecentlyFunc = false;
                 return;
             }
 
-            infix += $"{expression} ^ ";
-            preview += $"{expression} ^ ";
+            infix += "^ ";
+            preview += "^ ";
         }
 
         // factorial
@@ -116,15 +117,15 @@ namespace CalculatorPlus
         {
             if (isRecentlyFunc)
             {
-                infix += "% ";
-                preview += "Mod ";
+                infix += $"{expression} % ";
+                preview += $"{expression} Mod ";
 
                 isRecentlyFunc = false;
                 return;
             }
 
-            infix += $"{expression} % ";
-            preview += $"{expression} Mod ";
+            infix += "% ";
+            preview += "Mod ";
         }
 
         public static void Add()
@@ -352,7 +353,10 @@ namespace CalculatorPlus
                 }
             }
 
-            expression = stack.Pop();
+            if (stack.Count > 0)
+            {
+                expression = stack.Pop();
+            }
 
             return double.Parse(expression);
         }
