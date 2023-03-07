@@ -329,6 +329,9 @@ namespace CalculatorPlus
                         case "%":
                             stack.Push(Convert.ToString(b % a));
                             break;
+                        case "^":
+                            stack.Push(Convert.ToString(Math.Pow(b, a)));
+                            break;
 
                     }
                 }
@@ -341,7 +344,7 @@ namespace CalculatorPlus
 
         private static bool IsOperator(string op)
         {
-            return char.TryParse(op, out char c) && (c == '+' || c == '-' || c == '*' || c == '/' || c == '%');
+            return char.TryParse(op, out char c) && (c == '+' || c == '-' || c == '*' || c == '/' || c == '%' || c == '^');
         }
 
         private static bool IsOperand(string operand)

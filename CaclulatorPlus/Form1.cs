@@ -192,7 +192,9 @@ namespace CaclulatorPlus
 
         private void RaiseY_Click(object sender, EventArgs e)
         {
-
+            Calculator.Raise();
+            this.expressionPreview.Text = Calculator.GetPreview();
+            this.currentValue.Text = Calculator.Calculate().ToString();
         }
 
         private void Factorial_Click(object sender, EventArgs e)
