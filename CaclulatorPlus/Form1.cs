@@ -1,6 +1,4 @@
 using CalculatorPlus;
-using System.Diagnostics;
-using System.Reflection.Metadata.Ecma335;
 
 namespace CaclulatorPlus
 {
@@ -237,6 +235,63 @@ namespace CaclulatorPlus
         private void ClearHistory_Click(object sender, EventArgs e)
         {
             this.history.Text = "";
+        }
+
+        private void Form_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char keyPressed = e.KeyChar;
+
+            switch (keyPressed)
+            {
+                case var _ when char.IsDigit(keyPressed):
+                    // Handle digit key press
+                    Calculator.SetExpression(double.Parse(keyPressed.ToString()));
+                    this.currentValue.Text = Calculator.GetExpression();
+                    break;
+                case '.':
+                    // Handle decimal point key press
+                    Dot_Click(sender, e);
+                    break;
+                case '+':
+                    // Handle operator key press
+                    Add_Click(sender, e);
+                    break;
+                case '-':
+                    // Handle operator key press
+                    Substract_Click(sender, e);
+                    break;
+                case '*':
+                    // Handle operator key press
+                    Multiply_Click(sender, e);
+                    break;
+                case '/':
+                    // Handle operator key press
+                    Divide_Click(sender, e);
+                    break;
+                case '%':
+                    // Handle operator key press
+                    Mod_Click(sender, e);
+                    break;
+                case '^':
+                    // Handle operator key press
+                    Exp_Click(sender, e);
+                    break;
+                case '=':
+                    // Handle operator key press
+                    Equals_Click(sender, e);
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void Form_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Back)
+            {
+                // Handle Backspace key press
+                Clear_Click(sender, e);
+            }
         }
     }
 }

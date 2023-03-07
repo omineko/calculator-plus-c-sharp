@@ -310,7 +310,6 @@ namespace CalculatorPlus
 
         public static double Calculate()
         {
-            Console.WriteLine(infix);
             isRecentlyCalc = true;
 
             string[] postfix = ToPostFix(infix).Split(" ");
